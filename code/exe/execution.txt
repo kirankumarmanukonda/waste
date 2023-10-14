@@ -1,0 +1,187 @@
+raspistill -o /Desktop/try.jpg
+
+raspi-gpio set 27 op dh
+
+-to run the old GUI
+g++ -o8 -fopenmp -o test test.c `pkg-config --cflags --libs /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/opencv4.pc ~/aravis/lib/arm-linux-gnueabihf/pkgconfig/aravis-0.8.pc` -lmosquitto -lpng -lslope -lm -rdynamic -export-dynamic 
+
+-to run the new GUI
+g++ -w -o8 -fopenmp -o test test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -rdynamic -export-dynamic
+
+-to run the GPU_GUI
+
+nvcc -c lsci.cu -o lsci_cu.o 
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth
+g++ lsci_cu.o test.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth
+sudo ./lsci
+
+-new gui with bluetooth
+
+nvcc -c lsci.cu -o lsci_cu.o 
+g++ -c raspi_bluetooth.c -o rblue.o -lbluetooth `pkg-config --cflags --libs gtk+-3.0`
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf
+g++ lsci_cu.o rblue.o test.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth
+rm -r lsci_cu.o rblue.o test.o
+sudo ./lsci
+
+
+
+
+nvcc -c lsci.cu -o lsci_cu.o 
+g++ -c bp_data.c -o bp_data.o -lmosquitto
+g++ -c raspi_bluetooth.c -o rblue.o `pkg-config --cflags --libs gtk+-3.0` -lbluetooth
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lsqlite3
+g++ lsci_cu.o rblue.o test.o bp_data.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth -lmosquitto -lsqlite3
+rm -r lsci_cu.o rblue.o test.o bp_data.o
+sudo ./lsci
+
+
+
+nvcc -c lsci_otsuZ.cu -o lsci_cu.o 
+g++ -c bp_data.c -o bp_data.o -lmosquitto
+g++ -c raspi_bluetooth.c -o rblue.o `pkg-config --cflags --libs gtk+-3.0` -lbluetooth
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lsqlite3
+g++ lsci_cu.o rblue.o test.o bp_data.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth -lmosquitto -lsqlite3
+rm -r lsci_cu.o rblue.o test.o bp_data.o
+sudo ./lsci
+
+
+
+
+
+nvcc -c lsci_otsuZ_parllel.cu -o lsci_cu.o 
+g++ -c bp_data.c -o bp_data.o -lmosquitto
+g++ -c raspi_bluetooth.c -o rblue.o `pkg-config --cflags --libs gtk+-3.0` -lbluetooth
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lsqlite3
+g++ lsci_cu.o rblue.o test.o bp_data.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth -lmosquitto -lsqlite3
+rm -r lsci_cu.o rblue.o test.o bp_data.o
+sudo ./lsci
+
+
+
+
+
+nvcc -c temp_lsci.cu -o lsci_cu.o
+
+
+
+nvcc -c temp_lsci.cu -o lsci_cu.o 
+g++ -c bp_data.c -o bp_data.o -lmosquitto
+g++ -c raspi_bluetooth.c -o rblue.o `pkg-config --cflags --libs gtk+-3.0` -lbluetooth
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf
+g++ lsci_cu.o rblue.o test.o bp_data.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth -lmosquitto
+rm -r lsci_cu.o rblue.o test.o bp_data.o
+sudo ./lsci
+
+
+
+
+
+nvcc -c -lineinfo --ptxas-options=-v lsci_edited.cu -o lsci_cu.o
+g++ -c bp_data.c -o bp_data.o -lmosquitto
+g++ -c raspi_bluetooth.c -o rblue.o `pkg-config --cflags --libs gtk+-3.0` -lbluetooth
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf
+g++ lsci_cu.o rblue.o test.o bp_data.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth -lmosquitto
+rm -r lsci_cu.o rblue.o test.o bp_data.o
+sudo ./lsci
+
+
+
+nvcc -c lsci_otsuZ.cu -o lsci_cu.o 
+g++ -c bp_data.c -o bp_data.o -lmosquitto
+g++ -c raspi_bluetooth.c -o rblue.o `pkg-config --cflags --libs gtk+-3.0` -lbluetooth
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lsqlite3 -ltiff
+g++ lsci_cu.o rblue.o test.o bp_data.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth -lmosquitto -lsqlite3 -ltiff
+rm -r lsci_cu.o rblue.o test.o bp_data.o
+sudo ./lsci
+
+
+
+nvcc -c lsci_avg_solve.cu -o lsci_cu.o 
+g++ -c bp_data.c -o bp_data.o -lmosquitto
+g++ -c raspi_bluetooth.c -o rblue.o `pkg-config --cflags --libs gtk+-3.0` -lbluetooth
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lsqlite3 -ltiff
+g++ lsci_cu.o rblue.o test.o bp_data.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth -lmosquitto -lsqlite3 -ltiff
+rm -r lsci_cu.o rblue.o test.o bp_data.o
+sudo ./lsci
+
+
+nvcc -c lsci_avg_solve.cu -o lsci_cu.o 
+g++ -c bp_data.c -o bp_data.o -lmosquitto
+g++ -c raspi_bluetooth.c -o rblue.o `pkg-config --cflags --libs gtk+-3.0` -lbluetooth
+g++ -c -w -o8 -fopenmp -o gui.o gui.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lsqlite3 -ltiff
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lsqlite3 -ltiff
+g++ lsci_cu.o rblue.o test.o gui.o bp_data.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth -lmosquitto -lsqlite3 -ltiff
+rm -r lsci_cu.o rblue.o test.o bp_data.o gui.o
+sudo ./lsci_new
+
+
+
+-report generation
+gcc text.c -lhpdf -o pdf_gen
+
+
+-convert to png
+gcc save_png.c -o png `pkg-config --cflags --libs MagickWand`
+
+
+-to change splash screen
+
+cd /usr/share/plymouth/themes/pix/
+
+copy to splash.png
+
+
+open iCentral 
+/opt/iCentral/iCentral/bin
+
+-main laser off
+raspi-gpio set 17 op dl
+
+-pointing laser on
+raspi-gpio set 4 op dh
+
+
+export PATH=/usr/local/cuda-12.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda12.0/lib64:$LD_LIBRARY_PATH
+
+sudo ifconfig eno1 169.254.118.246 netmask 255.255.255.0 up
+
+sudo ifconfig enp2s0 169.254.118.246 netmask 255.255.255.0 up
+
+echo ayati | sudo -S 
+
+
+
+g++ Vignetting_Correction.cpp -o k `pkg-config --cflags --libs /usr/lib/python3/dist-packages/cv2.cpython-310-x86_64-linux-gnu.so`
+
+
+
+
+
+
+
+
+
+/usr/lib/x86_64-linux-gnu/pkgconfig/opencv4.pc
+
+
+
+
+
+nvcc -c lsci_avg_solve.cu -o lsci_cu.o 
+g++ -c bp_data.c -o bp_data.o -lmosquitto
+g++ -c raspi_bluetooth.c -o rblue.o `pkg-config --cflags --libs gtk+-3.0` -lbluetooth
+g++ -c -w -o8 -fopenmp -o test.o test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lsqlite3 -ltiff -lpng
+g++ lsci_cu.o rblue.o test.o bp_data.o -o8 -fopenmp -o lsci `pkg-config --cflags --libs cuda-12.0 cudart-12.0 gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -lbluetooth -lmosquitto -lsqlite3 -ltiff -lpng
+rm -r lsci_cu.o rblue.o test.o bp_data.o
+sudo ./lsci
+
+
+
+
+g++ -w -c pdf_gen.c -o k `pkg-config --cflags --libs gtk+-3.0`-lhpdf 
+g++ -w -c pat_data_base.c -o k `pkg-config --cflags --libs gtk+-3.0` -lsqlite3
+g++ -w -c calculations.c -o k `pkg-config --cflags --libs gtk+-3.0`
+g++ -w -c camera_functions.c -o k `pkg-config --cflags --libs gtk+-3.0 /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc`
+g++ -w -c gui.c -o k `pkg-config --cflags --libs gtk+-3.0 /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc`

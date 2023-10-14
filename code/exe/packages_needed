@@ -1,0 +1,74 @@
+problems faced:
+camera failed to connect
+	-sudo ifconfig enp2s0 169.254.118.246 netmask 255.255.255.0 up
+
+roi was not working
+
+
+meson
+	-sudo apt install meson
+
+aravis (access camera)
+	-follow the website
+gtk+-3.0
+	-sudo apt-get install libgtk-3-dev
+mosquitto (mqtt)
+	-sudo apt install mosquitto
+libharu (save as pdf)
+	-sudo apt-get install libhpdf-dev
+magickwand (to convert to png)
+	-sudo apt-get install imagemagick libmagickwand-dev
+	
+slope  ( to plot the maps using the gtk)
+	- follow the website https://github.com/bytebrew/slope
+download the source code
+go inside the slope master
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
+fswebcam
+sudo apt install fswebcam
+
+	
+glade  (for the GUI)
+	-sudo apt-get install glade
+
+
+dbus ( It is often required for applications that use D-Bus to communicate with other processes or services on the system)
+	-sudo apt-get install dbus-x11
+
+pdftk ( to edit the pdf files)
+	-sudo apt-get install pdftk
+
+sqlite (create data bases )
+	-sudo apt-get install libsqlite3-dev
+
+//for the raspberrypi 
+bluetooth
+	-sudo apt-get install bluez libbluetooth-dev
+
+wiringpi(gpio access)
+cd /tmp
+wget https://project-downloads.drogon.net/wiringpi-latest.deb
+	-sudo dpkg -i wiringpi-latest.deb
+//to check
+gpio -v
+
+
+
+
+-to run the new GUI
+g++ -w -o8 -fopenmp -o test test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -rdynamic -export-dynamic
+
+
+g++ -o8 -fopenmp -o test test.c `pkg-config --cflags --libs /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/opencv4.pc ~/aravis/lib/arm-linux-gnueabihf/pkgconfig/aravis-0.8.pc` -lmosquitto -lpng -lslope -lm -rdynamic -export-dynamic
+
+- to see the list of camera
+v4l2-ctl --list-devices
+
+
+
+g++ -fno-stack-protector -w -o8 -fopenmp -o test test.c `pkg-config --cflags --libs gtk+-3.0 MagickWand /usr/local/lib/x86_64-linux-gnu/pkgconfig/aravis-0.8.pc` -lslope -lhpdf -rdynamic -export-dynamic 

@@ -1,0 +1,8 @@
+program mode 
+    GPIO0 -> GND 
+
+Normal mode 
+    0 -> SDA
+    2 -> SCL
+
+in the code before this make gpio2 as low

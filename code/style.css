@@ -1,0 +1,297 @@
+
+.button {
+  padding: 10px 20px;
+  background: rgb(60, 60, 60);
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 5px 5px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+button:active {
+  box-shadow: inset 4px 4px 4px grey;
+
+}
+
+
+
+.tool_button {
+  padding: 5px 10px;
+  background: rgb(60, 60, 60);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background: rgb(60, 60, 60);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  
+} 
+.tool_button_select
+{
+  background: red;
+}
+
+/* tool_button:hover {
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+tool_button:active {
+  box-shadow: none;
+  background-color: #e40e0e;
+  box-shadow: inset 4px 4px 4px grey;
+
+} 
+*/
+/*dde6ed   4d79ff*/
+.pat_form {
+  background-color: #2e567f;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+  /*
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  */
+}
+
+/* .pat_his {
+  
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+  font-size: 16px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 10px solid gray;
+  
+} */
+
+
+.l_scale
+{
+  color: blue;
+  font-size: 15px;
+  font-weight: bold;
+
+  
+}
+.u_scale
+{
+  color: red;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.scale_head
+{
+  color: #3d3e40;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.details_head{
+font-size: 20px;
+}
+.questions{
+font-size: 17px;
+}
+
+.body {
+  background-color: #cddae5;
+  
+}
+
+.head{
+color: white;
+font-size: 19px;
+}
+/*2e567f*/
+.textbox {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  
+}
+
+.pat_his_scroll
+{
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.droping_calender
+{
+  border-radius: 20px;
+  padding: 2px;
+
+}
+
+.eventbox_style {
+  background-color: #2e567f;
+/*  border: 1px solid #333; */
+  border-radius: 30px;
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.3);
+}
+
+
+.graph {
+  background-color: #2e567f;
+  /*border-radius: 30px;*/
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.3);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+
+.roi_table {
+  background-color: #2e567f;
+/*  border: 1px solid #333; */
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+}
+
+.roi_details {
+  background-color: #444647;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+}
+
+
+
+.image_container {
+/*
+    border: 1px solid #333;
+    border-radius: 20px;
+    */
+    background-color: #2e567f;
+}
+
+
+
+.home_button {
+  padding: 10px 20px;
+  background: rgb(60, 60, 60);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 5px 5px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+.toolbar_style{
+  background-color: #04284a;
+  
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px 5px;
+  border-radius: 30px;
+}
+
+.roi_type_selection button {
+  background-color: #e22f2f; 
+  color: white; 
+}
+
+.toolbar_style button
+{
+  border-radius: 10px;
+}
+.toolbar_style button:hover
+{
+  background-color: rgb(11, 11, 221);
+}
+
+
+
+
+.ref_selection{
+  background-color: yellowgreen;
+}
+.scrolll_window{
+  background-color: #b3c7d8;;
+  color: black;
+
+}
+
+
+
+.scrolll_window_head{
+  background-color: yellow;
+  color: white;
+
+}
+
+.switch_css
+{
+  color: black;
+  background-color: #2e567f;
+}
+
+.scrolll_window:selected {
+  background-color: #2e567f; /* Set the background color of the selected rows */
+  color: white; /* Set the text color of the selected rows */
+}
+
+.clinical_impress_dialog
+{
+  background:#b6c9d9;
+  color:black;
+  font-weight: bold;
+  
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+  
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 10px;
+  
+
+}
+.clinical_box
+{
+  background-color:blue;
+  color:red;
+}
+
+.clinical_box_cancel
+{
+  margin-top: 20px;
+  margin-right: 50px;
+  margin-bottom: 10px;
+  background: #b23525;
+}
+.clinical_box_ok
+{
+  margin-top: 20px;
+  margin-right: 50px;
+  margin-bottom: 10px;
+  background: #3b9957
+}
+
+
+.bp_prompt_style
+{
+  background-color: #2e567f;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.3);
+}
+
+.bp_val_style{
+  
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: black;
+  font-size: 30px;
+  }

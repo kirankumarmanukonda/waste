@@ -1,0 +1,46 @@
+sudo mv k /usr/local/bin
+sudo mv cam.py /usr/local/bin
+
+sudo nano /etc/systemd/system/angio_script.service
+
+[Unit]
+Description=Angiocam Script
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/local/bin/raspi_gpio
+
+[Install]
+WantedBy=default.target
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sudo systemctl status angio_script.service
+
+sudo systemctl start angio_script.service
+
+sudo systemctl enable mybinary.service
+
+
+sudo systemctl start mybinary.service
+
+sudo systemctl status mybinary.service
+sudo systemctl restart mybinary.service
+sudo systemctl stop mybinary.service
+

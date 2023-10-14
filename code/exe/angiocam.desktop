@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Exec=sudo /home/ayati/Documents/gladetest_v2.5.1/gladetest/code/lsci
+Icon=/home/ayati/Documents/gladetest_v2.5.1/gladetest/code/ui_data/icon.png
+Name=Angiocam
+Comment=Micro circulation
+Terminal=true
+Categories=GTK;GNOME

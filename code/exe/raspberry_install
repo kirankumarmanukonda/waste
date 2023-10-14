@@ -1,0 +1,34 @@
+open rpimager in windows
+usr:ayati
+pwd:ayati
+hostname:devicx.local
+
+Lan
+    ssid:Derbi-5
+    pwd:Derbi#@2023
+
+Connect via ssh with the above credentials & install xrdp
+    -sudo apt-get install xrdp
+
+add new user for access the gui
+    sudo adduser kiran
+    pwd:kiran
+
+make the user sudoer
+    -sudo adduser kiran sudo
+
+install the dependencies for the bluetooth
+    -sudo apt-get install bluez libbluetooth-dev
+
+
+Enable legacy camera and reboot
+    -sudo raspi-config
+    -reboot
+
+pair the bluetooth device once manually
+
+set the starup script raspberrypi_startup
+    -sudo nano /etc/systemd/system/angio_script.service
+    -sudo systemctl daemon-reload
+    -sudo systemctl enable angiocam.service
+
